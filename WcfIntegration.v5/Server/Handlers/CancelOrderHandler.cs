@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Messages;
 using NServiceBus;
 
@@ -17,6 +18,7 @@ namespace Server.Handlers
         {
             Console.WriteLine("======================================================================");
 
+            Thread.Sleep(100);
             if (message.OrderId % 2 == 0)
                 bus.Return((int) ErrorCodes.Fail);
             else
